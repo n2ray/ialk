@@ -1,0 +1,4 @@
+enabled: true
+default_lang: de
+dropdown:
+  enabled: true
