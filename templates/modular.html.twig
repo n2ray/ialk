@@ -1,0 +1,17 @@
+{% extends '/partials/base.html.twig' %}
+
+{% block body%}
+<div class="uk-container uk-container-center uk-margin-large-bottom uk-margin-large-top">
+    <div class="section">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                {{ page.content }}
+            </div>
+        </div>
+    </div>
+    {% for module in page.collection() %}
+        <div id="{{ _self.pageLinkName(module.menu) }}"></div>
+        {{ module.content }}
+    {% endfor %}
+</div>
+{% endblock %}
