@@ -1,3 +1,3 @@
 # Ialk Theme
 
-Theme for Klai Hosting
+Theme for Klai
