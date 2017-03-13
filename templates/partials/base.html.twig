@@ -4,6 +4,7 @@
     
     <head>
     {% block head %}
+       
         <meta charset="utf-8">
         <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
         
@@ -28,6 +29,7 @@
             {% do assets.addJs('theme://js/ialk.js', 97) %}
         {% endblock %}
         {{ assets.js() }}
+        
     {% endblock head %}
     </head>
 
@@ -102,5 +104,9 @@
         </div>
         {% endblock offcanvas %}
         
+        {% block bottom %}
+            {{ assets.js('bottom') }}
+        {% endblock %}
+    
     </body>
 </html>

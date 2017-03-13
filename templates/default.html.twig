@@ -1,31 +1,5 @@
 {% extends 'partials/base.html.twig' %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        var transparent = true;
-        var checkScrollForTransparentNavbar = debounce(function() {
-            if($(document).scrollTop() > 160 ) {
-                if(transparent) {
-                    transparent = false;
-                    $('.navbar-bg-on-scroll').removeClass('navbar-transparent');
-                }
-            } else {
-                if( !transparent ) {
-                    transparent = true;
-                    $('.navbar-bg-on-scroll').addClass('navbar-transparent');
-                }
-            }
-        }, 17);
-
-        $(document).ready(function(){
-            if($('.navbar-bg-on-scroll').length != 0){
-                $(window).on('scroll', checkScrollForTransparentNavbar)
-            }
-        });
-    </script>
-{% endblock %}
-
 {% block content %}
     {{ page.content }}
 {% endblock %}
