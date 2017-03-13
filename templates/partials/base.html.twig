@@ -25,6 +25,7 @@
             {% do assets.addJs('jquery', 100) %}
             {% do assets.addJs('theme://assets/uikit/js/uikit.min.js', 99) %}
             {% do assets.addJs('theme://assets/uikit/js/components/sticky.min.js', 98) %}
+            {% do assets.addJs('theme://js/ialk.js', 97) %}
         {% endblock %}
         {{ assets.js() }}
     {% endblock head %}
@@ -34,16 +35,16 @@
         
         {# Page navbar #}
         {% block nav %}
-        <nav class="uk-navbar uk-navbar-attached" data-uk-sticky>
+        <nav class="uk-navbar uk-navbar-attached navbar-bg-on-scroll navbar-transparent" data-uk-sticky>
             <div class="uk-container uk-container-center">
                 <div class="uk-grid">
                     <div class="uk-width-1-1">
                         <a class="uk-navbar-brand uk-hidden-small" href="{{ base_url == '' ? '/' : base_url }}">{{ config.site.title }}</a>
-            <div class="uk-navbar-flip">
-                <ul class="uk-navbar-nav uk-hidden-small">
-                    {% include 'partials/navigation.html.twig' %}
-                </ul>
-            </div>
+                        <div class="uk-navbar-flip">
+                            <ul class="uk-navbar-nav uk-hidden-small" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}">
+                                {% include 'partials/navigation.html.twig' %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -54,10 +55,10 @@
         
         {# Page header #}
         {% block header %}
-        <div class="uk-vertical-align uk-text-center" style="background: url('{{ page.find('/images').media['header-bg.jpg'].url }}') 50% 0 no-repeat; background-size: cover; background-attachment: fixed; height: 80vh; margin-top: -60px; padding-top:60px">
+        <div class="uk-vertical-align uk-text-center on-navbar-transparent" style="background: url('{{ page.find('/images').media['header-bg.jpg'].brightness(-30).url }}') 50% 0 no-repeat; background-size: cover; background-attachment: fixed; height: 100vh;">
             <div class="uk-vertical-align-middle uk-width-1-2">
-                <h1 class="uk-heading-large">ialk Theme</h1>
-                <p class="uk-text-large">An exclusive theme only for Klai Hosting</p>
+                <h1 class="uk-heading-large text-white">ialk Theme</h1>
+                <p class="uk-text-large text-white">An exclusive theme only for Klai Hosting</p>
                 <p>
                     <a class="uk-button uk-button-primary uk-button-large" href="#">Learn more</a>
                 </p>
